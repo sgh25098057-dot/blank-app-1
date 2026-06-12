@@ -12,7 +12,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # ==========================================
 # 0. API 설정 (★본인의 키 유지)
 # ==========================================
-GEMINI_API_KEY = "AQ.Ab8RN6KOHbFjK6W4BSQ_knGcAOOwZYogZB21Zs2qICLCiIr7IA"
+GEMINI_API_KEY = "수정"
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 # ==========================================

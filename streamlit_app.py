@@ -20,7 +20,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 # ==========================================
 def fetch_kamis_realtime_data():
     # 사용자가 지정한 전체 URL (JSON 반환 설정 포함)
-    api_url = "https://www.kamis.or.kr/service/price/xml.do?action=dailySalesList&p_cert_key=test&p_cert_id=test&p_returntype=json"
+    api_url = "http://www.kamis.or.kr/service/price/xml.do?action=dailySalesList&p_cert_key=test&p_cert_id=test&p_returntype=json"
     
     # 🌟 1. 진짜 통신 시도 (가짜 데이터 및 방어 로직 완전 제거)
     response = requests.get(api_url, timeout=10, verify=False)

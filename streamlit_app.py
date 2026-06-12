@@ -2,8 +2,12 @@ import streamlit as st
 import pandas as pd
 import json
 import requests
+import urllib3 # 🌟 추가: 경고 메시지 제어용 라이브러리
 from google import genai
 from google.genai import types
+
+# 🌟 추가: SSL 인증서 무시로 인해 발생하는 귀찮은 경고 메시지들을 숨깁니다.
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # ==========================================
 # 0. API 설정 (★본인의 키 유지)
@@ -19,7 +23,7 @@ def fetch_kamis_realtime_data():
     api_url = "https://www.kamis.or.kr/service/price/xml.do?action=dailySalesList&p_cert_key=test&p_cert_id=test&p_returntype=json"
     
     # 🌟 1. 진짜 통신 시도 (가짜 데이터 및 방어 로직 완전 제거)
-    response = requests.get(api_url, timeout=10)
+    response = requests.get(api_url, timeout=10, verify=False)
     response.raise_for_status() # HTTP 에러 시 여과 없이 예외 발생
     raw_data = response.json()  # JSON 형태로 파싱
     
